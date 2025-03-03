@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\ImageGaleryRepository;
+use App\Repository\MemberRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 final class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(EntityManagerInterface $em, UserPasswordHasherInterface $up): Response
+    public function index(MemberRepository $memberRepository, ImageGaleryRepository $imageGaleryRepository, ): Response
     {
         // $user = new User();
         // $user->setEmail('bonixbag@gmail.com')
@@ -22,8 +24,12 @@ final class HomeController extends AbstractController
         //     ;
         //     $em->persist($user);
         //     $em->flush();
+        $members = $memberRepository->findAll();
+        $images = $imageGaleryRepository->findAll();
             return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'members' => $members,
+            'images' => $images,
+            'controller_name' => 'HomeController'
         ]);
     }
 }
