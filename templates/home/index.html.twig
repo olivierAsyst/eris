@@ -30,7 +30,6 @@
     </div>
   </div>
 </section>
-
 <section class="bg-white dark:bg-gray-900">
     <h1 class="text-center mb-4 text-4xl tracking-tight font-extrabold bg-gradient-to-r from-green-900 to-green-400 text-transparent bg-clip-text dark:text-white pt-5">Nous intervenons dans: </h1>
     <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-8 lg:px-6">
@@ -338,7 +337,11 @@
       <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {% for member in members %}
             <div class="text-center text-gray-500 dark:text-gray-400">
+            {% if member.imageUrl is null %}
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="images/profile.svg" alt="{{ member.fullname }}">
+            {% else %}
                 <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ vich_uploader_asset(member, 'image') }}" alt="{{ member.fullname }}">
+            {% endif %}
                 <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     <a href="#" class="bg-gradient-to-r from-green-900 to-green-600 text-transparent bg-clip-text">{{ member.fullname }}</a>
                 </h3>

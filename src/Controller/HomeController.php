@@ -24,12 +24,12 @@ final class HomeController extends AbstractController
         //     ;
         //     $em->persist($user);
         //     $em->flush();
-        $members = $memberRepository->findAll();
-        $images = $imageGaleryRepository->findAll();
-            return $this->render('home/index.html.twig', [
+        $members = $memberRepository->findLatestMembers();
+        $images = $imageGaleryRepository->findLatestImages();
+        return $this->render('home/index.html.twig', [
             'members' => $members,
             'images' => $images,
-            'controller_name' => 'HomeController'
+            'controller_name' => 'Acceuil | ERIS'
         ]);
     }
 }
