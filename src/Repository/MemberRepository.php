@@ -19,14 +19,14 @@ class MemberRepository extends ServiceEntityRepository
     /**
      * @return 4 last Member
      */
-    public function findLatestMembers()
-    {
-        return $this->createQueryBuilder('m')
-            ->setMaxResults(4)
-            ->getQuery()
-            ->getResult();
-    }
-    //    /**
+    // public function findLatestMembers()
+    // {
+    //     return $this->createQueryBuilder('m')
+    //         ->setMaxResults(4)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
+    // //    /**
     //     * @return Member[] Returns an array of Member objects
     //     */
     //    public function findByExampleField($value): array

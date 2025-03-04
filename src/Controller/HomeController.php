@@ -24,8 +24,8 @@ final class HomeController extends AbstractController
         //     ;
         //     $em->persist($user);
         //     $em->flush();
-        $members = $memberRepository->findLatestMembers();
-        $images = $imageGaleryRepository->findLatestImages();
+        $members = $memberRepository->findAll();
+        $images = $imageGaleryRepository->findAll();
         return $this->render('home/index.html.twig', [
             'members' => $members,
             'images' => $images,

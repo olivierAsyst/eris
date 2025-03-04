@@ -16,13 +16,13 @@ class ImageGaleryRepository extends ServiceEntityRepository
         parent::__construct($registry, ImageGalery::class);
     }
 
-    public function findLatestImages()
-    {
-        return $this->createQueryBuilder('m')
-            ->setMaxResults(4)
-            ->getQuery()
-            ->getResult();
-    }
+    // public function findLatestImages()
+    // {
+    //     return $this->createQueryBuilder('m')
+    //         ->setMaxResults(4)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
     //   
 
     //    /**
