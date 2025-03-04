@@ -237,6 +237,7 @@
       {# <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Notre équipe est composée de professionnels passionnés et engagés dans la réussite de nos services. Chacun apporte son expertise et son savoir-faire pour garantir des solutions adaptées et innovantes.</p> #}
     </div> 
     <div class="flex gap-5">
+    {% if images is not empty %}
     {% for image in images %}
       <a href="#" class="group relative block bg-black">
         <img
@@ -258,69 +259,10 @@
           </div>
         </div>
       </a>
+    {% endfor %}      
     {% else %}
       Aucune image dans la galerie
-    {% endfor %}
-      {# <a href="#" class="group relative block bg-black">
-        <img
-          alt=""
-          src="images/galery/img_2065.jpg"
-          class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-        />
-
-        <div class="relative p-4 sm:p-6 lg:p-8">
-          <p class="text-2xl uppercase tracking-widest text-white font-bold">BUKAVU</p>
-          <div class="mt-32 sm:mt-48 lg:mt-64">
-            <div
-              class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
-            >
-              <p class="text-sm text-white">
-                Descente sur terrain dans le site de pres de Bagira
-              </p>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="group relative block bg-black">
-        <img
-          alt=""
-          src="images/galery/img_2065.jpg"
-          class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-        />
-
-        <div class="relative p-4 sm:p-6 lg:p-8">
-          <p class="text-2xl uppercase tracking-widest text-white font-bold">KAVUMU</p>
-          <div class="mt-32 sm:mt-48 lg:mt-64">
-            <div
-              class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
-            >
-              <p class="text-sm text-white">
-                Descente sur terrain dans le site de pres de Bagira
-              </p>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="group relative block bg-black">
-        <img
-          alt=""
-          src="images/galery/img_2065.jpg"
-          class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-        />
-
-        <div class="relative p-4 sm:p-6 lg:p-8">
-          <p class="text-2xl uppercase tracking-widest text-white font-bold">KALEHE</p>
-          <div class="mt-32 sm:mt-48 lg:mt-64">
-            <div
-              class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
-            >
-              <p class="text-sm text-white">
-                Descente sur terrain dans le site de pres de Bagira
-              </p>
-            </div>
-          </div>
-        </div>
-      </a> #}
+    {% endif %}
     </div>
     <a href="{{ path('app_front_image') }}" class="mt-5 inline-flex w-32 items-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
       Voir plus
@@ -335,6 +277,7 @@
           <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Notre équipe est composée de professionnels passionnés et engagés dans la réussite de nos services. Chacun apporte son expertise et son savoir-faire pour garantir des solutions adaptées et innovantes.</p>
       </div> 
       <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {% if members is not empty %}
         {% for member in members %}
             <div class="text-center text-gray-500 dark:text-gray-400">
             {% if member.imageUrl is null %}
@@ -359,9 +302,10 @@
                     </li>
                 </ul>
             </div>
-        {% else %}
+      {% endfor %}
+      {% else %}
           <h2>Aucun Membre ajouté</h2>
-        {% endfor %}
+      {% endif %}
         </div>
           <a href="{{ path('app_front_member') }}" class="inline-flex w-32 items-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
             Voir plus
